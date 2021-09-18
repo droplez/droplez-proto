@@ -1,0 +1,60 @@
+# ---
+# name: Generate GO code
+# 
+# on:
+  # push:
+# 
+# jobs:
+  # lint:
+    # runs-on: ubuntu-latest
+    # steps:
+      # - name: Checkout
+        # uses: actions/checkout@v2
+      # - name: Run dockerized lint
+        # run: make docker-lint
+  # update-go-package:
+    # runs-on: ubuntu-latest
+    # needs:
+      # - lint
+    # steps:
+      # - name: Checkout proto repo
+        # uses: actions/checkout@v2
+        # with:
+          # path: proto
+# 
+      # - name: Checkout go-proto repo
+        # uses: actions/checkout@v2
+        # with:
+          # persist-credentials: false
+          # fetch-depth: 0
+          # repository: badhouseplants/envspotting-go-proto
+          # ref: main
+          # path: go-proto
+# 
+      # - name: Copy proto defenitions
+        # working-directory: go-proto
+        # run: cp -R ../proto/proto .
+# 
+      # - name: Build docker image
+        # working-directory: go-proto
+        # run: docker build -t generate-go-code .
+# 
+      # - name: Generate go code
+        # working-directory: go-proto
+        # run: make docker-protobuf
+# 
+      # - name: Remove proto dir
+        # working-directory: go-proto
+        # run: rm -rf proto
+# 
+      # - name: Pushe to ago-proto
+        # uses: cpina/github-action-push-to-another-repository@main
+        # env:
+          # API_TOKEN_GITHUB: ${{ secrets.GO_TOKEN_GITHUB }}
+        # with:
+          # source-directory: 'go-proto'
+          # destination-github-username: 'badhouseplants'
+          # destination-repository-name: 'envspotting-go-proto'
+          # user-email: dev.allanger@gmail.com
+          # commit-message: ${{ github.event.head_commit.message }}
+          # target-branch: dev

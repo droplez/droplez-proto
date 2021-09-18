@@ -1,0 +1,37 @@
+/// This file has messages for describing droplez-uploader service
+syntax = "proto3";
+package droplez_uploader;
+option go_package = "github.com/droplez/droplez-go-proto/pkg/uploader";
+
+service Uploader {
+  rpc Upload(stream Chunk) returns (UploadedFileData);
+  rpc GetDownloadableLink(UploadedFileData) returns (DownloadableLink);
+}
+
+message Chunk {
+  bytes content = 1;
+  Metadata file_metadata = 4;
+}
+
+message Metadata {
+  enum ContentType {
+    CONTENT_TYPE_UNSPECIFIED = 0;
+    CONTENT_TYPE_ARCHIVE = 1;
+    CONTENT_TYPE_PICTURE = 2;
+    CONTENT_TYPE_AUDIO = 3;
+  }
+  string name = 1;
+  ContentType content_type = 2;
+  string local_name = 3;
+  int64 file_size = 4;
+  string user_id = 5;
+}
+
+message UploadedFileData {
+  string object = 1;
+  string version = 2;
+}
+
+message DownloadableLink {
+  string url = 1;
+}

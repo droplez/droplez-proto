@@ -1,0 +1,19 @@
+/// This file has messages for reusable common messages
+syntax = "proto3";
+package common;
+option go_package = "github.com/droplez/droplez-go-proto/pkg/common";
+
+/**
+ * Represents an empty message
+ * Use when no content's needed
+ */
+// protolint:disable:next INDENT
+message EmptyMessage {}
+
+/**
+ * Represents a pagination message
+ */
+message Paging {
+  int32 page = 1;   // Page number or offset
+  int32 count = 2;  // Units count or limit
+}

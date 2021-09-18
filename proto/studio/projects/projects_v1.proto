@@ -1,0 +1,44 @@
+/// This file has messages for describing droplez-projects service
+syntax = "proto3";
+package projects;
+import "common/common_v1.proto";
+option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/projects";
+
+service Projects {
+  rpc Create(ProjectMeta) returns (ProjectInfo);
+  rpc Update(ProjectInfo) returns (ProjectInfo);
+  rpc Get(ProjectId) returns (ProjectInfo);
+  rpc List(ListOptions) returns (stream ProjectInfo);
+  rpc Delete(ProjectInfo) returns (common.EmptyMessage);
+}
+
+message ProjectId {
+  string id = 1;
+}
+
+message ProjectInfo {
+  ProjectId id = 1;
+  ProjectMeta metadata = 3;
+}
+
+message ProjectMeta {
+  string name = 1;
+  DAW daw = 2;
+  string description = 3;
+  bool public = 4;
+  int32 bpm = 5;
+  string key = 6;
+  string genre = 7;
+  bool template = 8;
+}
+
+message ListOptions {
+  common.Paging paging = 1;
+}
+
+enum DAW {
+  DAW_UNSPECIFIED = 0;
+  DAW_LOGIC_PRO = 1;
+  DAW_ABLETON = 2;
+  DAW_GARAGEBAND = 3;
+}
