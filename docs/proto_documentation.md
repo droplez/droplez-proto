@@ -4,14 +4,14 @@
 ## Table of Contents
 
 - [uploader/uploader_v1.proto](#uploader/uploader_v1.proto)
-    - [Chunk](#droplez_uploader.Chunk)
-    - [DownloadableLink](#droplez_uploader.DownloadableLink)
-    - [Metadata](#droplez_uploader.Metadata)
-    - [UploadedFileData](#droplez_uploader.UploadedFileData)
+    - [Chunk](#uploader.Chunk)
+    - [DownloadableLink](#uploader.DownloadableLink)
+    - [Metadata](#uploader.Metadata)
+    - [UploadedFileData](#uploader.UploadedFileData)
   
-    - [Metadata.ContentType](#droplez_uploader.Metadata.ContentType)
+    - [Metadata.ContentType](#uploader.Metadata.ContentType)
   
-    - [Uploader](#droplez_uploader.Uploader)
+    - [Uploader](#uploader.Uploader)
   
 - [studio/projects/projects_v1.proto](#studio/projects/projects_v1.proto)
     - [ListOptions](#projects.ListOptions)
@@ -24,12 +24,12 @@
     - [Projects](#projects.Projects)
   
 - [studio/versions/versions_v1.proto](#studio/versions/versions_v1.proto)
-    - [ListOptions](#droplez_versions.ListOptions)
-    - [VersionId](#droplez_versions.VersionId)
-    - [VersionInfo](#droplez_versions.VersionInfo)
-    - [VersionMeta](#droplez_versions.VersionMeta)
+    - [ListOptions](#versions.ListOptions)
+    - [VersionId](#versions.VersionId)
+    - [VersionInfo](#versions.VersionInfo)
+    - [VersionMeta](#versions.VersionMeta)
   
-    - [Versions](#droplez_versions.Versions)
+    - [Versions](#versions.Versions)
   
 - [common/common_v1.proto](#common/common_v1.proto)
     - [EmptyMessage](#common.EmptyMessage)
@@ -46,7 +46,7 @@
 This file has messages for describing droplez-uploader service
 
 
-<a name="droplez_uploader.Chunk"></a>
+<a name="uploader.Chunk"></a>
 
 ### Chunk
 
@@ -55,14 +55,14 @@ This file has messages for describing droplez-uploader service
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | content | [bytes](#bytes) |  |  |
-| file_metadata | [Metadata](#droplez_uploader.Metadata) |  |  |
+| file_metadata | [Metadata](#uploader.Metadata) |  |  |
 
 
 
 
 
 
-<a name="droplez_uploader.DownloadableLink"></a>
+<a name="uploader.DownloadableLink"></a>
 
 ### DownloadableLink
 
@@ -77,7 +77,7 @@ This file has messages for describing droplez-uploader service
 
 
 
-<a name="droplez_uploader.Metadata"></a>
+<a name="uploader.Metadata"></a>
 
 ### Metadata
 
@@ -86,7 +86,7 @@ This file has messages for describing droplez-uploader service
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  |  |
-| content_type | [Metadata.ContentType](#droplez_uploader.Metadata.ContentType) |  |  |
+| content_type | [Metadata.ContentType](#uploader.Metadata.ContentType) |  |  |
 | local_name | [string](#string) |  |  |
 | file_size | [int64](#int64) |  |  |
 | user_id | [string](#string) |  |  |
@@ -96,7 +96,7 @@ This file has messages for describing droplez-uploader service
 
 
 
-<a name="droplez_uploader.UploadedFileData"></a>
+<a name="uploader.UploadedFileData"></a>
 
 ### UploadedFileData
 
@@ -114,7 +114,7 @@ This file has messages for describing droplez-uploader service
  
 
 
-<a name="droplez_uploader.Metadata.ContentType"></a>
+<a name="uploader.Metadata.ContentType"></a>
 
 ### Metadata.ContentType
 
@@ -132,15 +132,15 @@ This file has messages for describing droplez-uploader service
  
 
 
-<a name="droplez_uploader.Uploader"></a>
+<a name="uploader.Uploader"></a>
 
 ### Uploader
 
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Upload | [Chunk](#droplez_uploader.Chunk) stream | [UploadedFileData](#droplez_uploader.UploadedFileData) |  |
-| GetDownloadableLink | [UploadedFileData](#droplez_uploader.UploadedFileData) | [DownloadableLink](#droplez_uploader.DownloadableLink) |  |
+| Upload | [Chunk](#uploader.Chunk) stream | [UploadedFileData](#uploader.UploadedFileData) |  |
+| GetDownloadableLink | [UploadedFileData](#uploader.UploadedFileData) | [DownloadableLink](#uploader.DownloadableLink) |  |
 
  
 
@@ -265,7 +265,7 @@ This file has messages for describing droplez-projects service
 This file has messages for describing droplez-projects service
 
 
-<a name="droplez_versions.ListOptions"></a>
+<a name="versions.ListOptions"></a>
 
 ### ListOptions
 
@@ -280,7 +280,7 @@ This file has messages for describing droplez-projects service
 
 
 
-<a name="droplez_versions.VersionId"></a>
+<a name="versions.VersionId"></a>
 
 ### VersionId
 
@@ -295,7 +295,7 @@ This file has messages for describing droplez-projects service
 
 
 
-<a name="droplez_versions.VersionInfo"></a>
+<a name="versions.VersionInfo"></a>
 
 ### VersionInfo
 
@@ -303,15 +303,15 @@ This file has messages for describing droplez-projects service
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [VersionId](#droplez_versions.VersionId) |  |  |
-| metadata | [VersionMeta](#droplez_versions.VersionMeta) |  |  |
+| id | [VersionId](#versions.VersionId) |  |  |
+| metadata | [VersionMeta](#versions.VersionMeta) |  |  |
 
 
 
 
 
 
-<a name="droplez_versions.VersionMeta"></a>
+<a name="versions.VersionMeta"></a>
 
 ### VersionMeta
 
@@ -320,6 +320,7 @@ This file has messages for describing droplez-projects service
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | version | [int32](#int32) |  |  |
+| project_id | [string](#string) |  |  |
 | object_name | [string](#string) |  |  |
 | message | [string](#string) |  |  |
 | uploaded_at | [string](#string) |  |  |
@@ -335,17 +336,18 @@ This file has messages for describing droplez-projects service
  
 
 
-<a name="droplez_versions.Versions"></a>
+<a name="versions.Versions"></a>
 
 ### Versions
 
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Get | [VersionId](#droplez_versions.VersionId) | [VersionInfo](#droplez_versions.VersionInfo) |  |
-| List | [ListOptions](#droplez_versions.ListOptions) | [VersionInfo](#droplez_versions.VersionInfo) stream |  |
-| Create | [VersionMeta](#droplez_versions.VersionMeta) | [VersionInfo](#droplez_versions.VersionInfo) |  |
-| Update | [VersionInfo](#droplez_versions.VersionInfo) | [VersionInfo](#droplez_versions.VersionInfo) |  |
+| Get | [VersionId](#versions.VersionId) | [VersionInfo](#versions.VersionInfo) |  |
+| List | [ListOptions](#versions.ListOptions) | [VersionInfo](#versions.VersionInfo) stream |  |
+| Create | [VersionMeta](#versions.VersionMeta) | [VersionInfo](#versions.VersionInfo) |  |
+| Update | [VersionInfo](#versions.VersionInfo) | [VersionInfo](#versions.VersionInfo) |  |
+| Delete | [VersionInfo](#versions.VersionInfo) | [.common.EmptyMessage](#common.EmptyMessage) |  |
 
  
 

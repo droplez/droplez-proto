@@ -1,14 +1,15 @@
 /// This file has messages for describing droplez-projects service
 syntax = "proto3";
-package droplez_versions;
+package versions;
 import "common/common_v1.proto";
-option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/versions";
+option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/proto_versions";
 
 service Versions {
   rpc Get(VersionId) returns (VersionInfo);
   rpc List(ListOptions) returns (stream VersionInfo);
   rpc Create(VersionMeta) returns (VersionInfo);
   rpc Update(VersionInfo) returns (VersionInfo);
+  rpc Delete(VersionInfo) returns (common.EmptyMessage);
 }
 
 message VersionId {
