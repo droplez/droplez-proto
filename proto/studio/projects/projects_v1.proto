@@ -2,7 +2,7 @@
 syntax = "proto3";
 package projects;
 import "common/common_v1.proto";
-option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/proto_projects";
+option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/projects";
 
 service Projects {
   rpc Create(ProjectMeta) returns (ProjectInfo);

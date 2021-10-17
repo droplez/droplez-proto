@@ -2,7 +2,7 @@
 syntax = "proto3";
 package versions;
 import "common/common_v1.proto";
-option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/proto_versions";
+option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/versions";
 
 service Versions {
   rpc Get(VersionId) returns (VersionInfo);

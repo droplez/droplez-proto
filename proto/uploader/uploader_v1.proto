@@ -1,7 +1,7 @@
 /// This file has messages for describing droplez-uploader service
 syntax = "proto3";
 package uploader;
-option go_package = "github.com/droplez/droplez-go-proto/pkg/proto_uploader";
+option go_package = "github.com/droplez/droplez-go-proto/pkg/uploader";
 
 service Uploader {
   rpc Upload(stream Chunk) returns (UploadedFileData);

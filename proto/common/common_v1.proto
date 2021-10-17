@@ -1,7 +1,7 @@
 /// This file has messages for reusable common messages
 syntax = "proto3";
 package common;
-option go_package = "github.com/droplez/droplez-go-proto/pkg/proto_common";
+option go_package = "github.com/droplez/droplez-go-proto/pkg/common";
 
 /**
  * Represents an empty message
