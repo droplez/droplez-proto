@@ -2,6 +2,7 @@
 syntax = "proto3";
 package versions;
 import "common/common_v1.proto";
+import "google/protobuf/timestamp.proto";
 option go_package = "github.com/droplez/droplez-go-proto/pkg/studio/versions";
 
 service Versions {
@@ -21,7 +22,7 @@ message VersionMeta {
   string project_id = 2;
   string object_name = 3;
   string message = 4;
-  string uploaded_at = 6;
+  google.protobuf.Timestamp uploaded_at = 6;
 }
 
 message VersionInfo {

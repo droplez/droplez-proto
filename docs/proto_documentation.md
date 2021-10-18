@@ -323,7 +323,7 @@ This file has messages for describing droplez-projects service
 | project_id | [string](#string) |  |  |
 | object_name | [string](#string) |  |  |
 | message | [string](#string) |  |  |
-| uploaded_at | [string](#string) |  |  |
+| uploaded_at | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
 
 
 
