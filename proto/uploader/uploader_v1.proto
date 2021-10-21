@@ -20,7 +20,6 @@ message Metadata {
     CONTENT_TYPE_PICTURE = 2;
     CONTENT_TYPE_AUDIO = 3;
   }
-  string name = 1;
   ContentType content_type = 2;
   string local_name = 3;
   int64 file_size = 4;
