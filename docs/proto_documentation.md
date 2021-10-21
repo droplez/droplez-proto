@@ -334,7 +334,6 @@ This file has messages for describing droplez-uploader service
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| name | [string](#string) |  |  |
 | content_type | [Metadata.ContentType](#uploader.Metadata.ContentType) |  |  |
 | local_name | [string](#string) |  |  |
 | file_size | [int64](#int64) |  |  |
