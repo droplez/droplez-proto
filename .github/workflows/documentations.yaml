@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --local user.email "droplez@protonmail.com"
           git config --local user.name "droplez-proto"
-          git add docs.md
+          git add docs/proto_documentation.md
           git commit -m "documentation update"
 
       - name: Push changes

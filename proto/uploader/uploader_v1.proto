@@ -1,6 +1,6 @@
 /// This file has messages for describing droplez-uploader service
 syntax = "proto3";
-package droplez_uploader;
+package uploader;
 option go_package = "github.com/droplez/droplez-go-proto/pkg/uploader";
 
 service Uploader {
