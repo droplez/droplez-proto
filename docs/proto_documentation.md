@@ -3,15 +3,9 @@
 
 ## Table of Contents
 
-- [uploader/uploader_v1.proto](#uploader/uploader_v1.proto)
-    - [Chunk](#uploader.Chunk)
-    - [DownloadableLink](#uploader.DownloadableLink)
-    - [Metadata](#uploader.Metadata)
-    - [UploadedFileData](#uploader.UploadedFileData)
-  
-    - [Metadata.ContentType](#uploader.Metadata.ContentType)
-  
-    - [Uploader](#uploader.Uploader)
+- [common/common_v1.proto](#common/common_v1.proto)
+    - [EmptyMessage](#common.EmptyMessage)
+    - [Paging](#common.Paging)
   
 - [studio/projects/projects_v1.proto](#studio/projects/projects_v1.proto)
     - [ListOptions](#projects.ListOptions)
@@ -31,81 +25,47 @@
   
     - [Versions](#versions.Versions)
   
-- [common/common_v1.proto](#common/common_v1.proto)
-    - [EmptyMessage](#common.EmptyMessage)
-    - [Paging](#common.Paging)
+- [uploader/uploader_v1.proto](#uploader/uploader_v1.proto)
+    - [Chunk](#uploader.Chunk)
+    - [DownloadableLink](#uploader.DownloadableLink)
+    - [Metadata](#uploader.Metadata)
+    - [UploadedFileData](#uploader.UploadedFileData)
+  
+    - [Metadata.ContentType](#uploader.Metadata.ContentType)
+  
+    - [Uploader](#uploader.Uploader)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="uploader/uploader_v1.proto"></a>
+<a name="common/common_v1.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## uploader/uploader_v1.proto
-This file has messages for describing droplez-uploader service
+## common/common_v1.proto
+This file has messages for reusable common messages
 
 
-<a name="uploader.Chunk"></a>
+<a name="common.EmptyMessage"></a>
 
-### Chunk
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| content | [bytes](#bytes) |  |  |
-| file_metadata | [Metadata](#uploader.Metadata) |  |  |
+### EmptyMessage
+protolint:disable:next INDENT
 
 
 
 
 
 
-<a name="uploader.DownloadableLink"></a>
+<a name="common.Paging"></a>
 
-### DownloadableLink
-
+### Paging
+Represents a pagination message
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| url | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="uploader.Metadata"></a>
-
-### Metadata
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| name | [string](#string) |  |  |
-| content_type | [Metadata.ContentType](#uploader.Metadata.ContentType) |  |  |
-| local_name | [string](#string) |  |  |
-| file_size | [int64](#int64) |  |  |
-| user_id | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="uploader.UploadedFileData"></a>
-
-### UploadedFileData
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| object | [string](#string) |  |  |
-| version | [string](#string) |  |  |
+| page | [int32](#int32) |  | Page number or offset |
+| count | [int32](#int32) |  | Units count or limit |
 
 
 
@@ -113,34 +73,9 @@ This file has messages for describing droplez-uploader service
 
  
 
-
-<a name="uploader.Metadata.ContentType"></a>
-
-### Metadata.ContentType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| CONTENT_TYPE_UNSPECIFIED | 0 |  |
-| CONTENT_TYPE_ARCHIVE | 1 |  |
-| CONTENT_TYPE_PICTURE | 2 |  |
-| CONTENT_TYPE_AUDIO | 3 |  |
-
-
  
 
  
-
-
-<a name="uploader.Uploader"></a>
-
-### Uploader
-
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| Upload | [Chunk](#uploader.Chunk) stream | [UploadedFileData](#uploader.UploadedFileData) |  |
-| GetDownloadableLink | [UploadedFileData](#uploader.UploadedFileData) | [DownloadableLink](#uploader.DownloadableLink) |  |
 
  
 
@@ -353,33 +288,72 @@ This file has messages for describing droplez-projects service
 
 
 
-<a name="common/common_v1.proto"></a>
+<a name="uploader/uploader_v1.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## common/common_v1.proto
-This file has messages for reusable common messages
+## uploader/uploader_v1.proto
+This file has messages for describing droplez-uploader service
 
 
-<a name="common.EmptyMessage"></a>
+<a name="uploader.Chunk"></a>
 
-### EmptyMessage
-protolint:disable:next INDENT
+### Chunk
 
-
-
-
-
-
-<a name="common.Paging"></a>
-
-### Paging
-Represents a pagination message
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| page | [int32](#int32) |  | Page number or offset |
-| count | [int32](#int32) |  | Units count or limit |
+| content | [bytes](#bytes) |  |  |
+| file_metadata | [Metadata](#uploader.Metadata) |  |  |
+
+
+
+
+
+
+<a name="uploader.DownloadableLink"></a>
+
+### DownloadableLink
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| url | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="uploader.Metadata"></a>
+
+### Metadata
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| content_type | [Metadata.ContentType](#uploader.Metadata.ContentType) |  |  |
+| local_name | [string](#string) |  |  |
+| file_size | [int64](#int64) |  |  |
+| user_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="uploader.UploadedFileData"></a>
+
+### UploadedFileData
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| object | [string](#string) |  |  |
 
 
 
@@ -387,9 +361,34 @@ Represents a pagination message
 
  
 
+
+<a name="uploader.Metadata.ContentType"></a>
+
+### Metadata.ContentType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| CONTENT_TYPE_UNSPECIFIED | 0 |  |
+| CONTENT_TYPE_ARCHIVE | 1 |  |
+| CONTENT_TYPE_PICTURE | 2 |  |
+| CONTENT_TYPE_AUDIO | 3 |  |
+
+
  
 
  
+
+
+<a name="uploader.Uploader"></a>
+
+### Uploader
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Upload | [Chunk](#uploader.Chunk) stream | [UploadedFileData](#uploader.UploadedFileData) |  |
+| GetDownloadableLink | [UploadedFileData](#uploader.UploadedFileData) | [DownloadableLink](#uploader.DownloadableLink) |  |
 
  
 
